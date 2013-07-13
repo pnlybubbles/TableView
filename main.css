@@ -1,0 +1,21 @@
+body {
+	margin: 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+
+.table_view {
+	height: 100%;
+	width: 100%;
+}
+
+.item {
+	height: 30px;
+	border-top: 1px solid rgb(0, 0, 0);
+	background-color: rgb(240, 240, 240);
+}
+
+.selected {
+	background-color: rgb(201,221,255);
+}
