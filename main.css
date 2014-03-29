@@ -1,19 +1,34 @@
 body {
 	margin: 0;
+	height: 100%;
+    user-select: none;
     -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
+}
+
+.column_container {
+	height: 100%;
+}
+
+.column {
+	height: 100%;
+	width: 100px;
 }
 
 .table_view {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	float: left;
+	margin-right: 10px;
 	height: 100%;
-	width: 100%;
+	/*width: 100%;*/
+	width: 300px;
+	border: 1px solid rgb(210, 210, 210);
 }
 
 .item {
 	height: 30px;
-	border-top: 1px solid rgb(0, 0, 0);
-	background-color: rgb(240, 240, 240);
+	border-bottom: 1px solid rgb(0, 0, 0);
+	/*background-color: rgb(240, 240, 240);*/
 }
 
 .selected {

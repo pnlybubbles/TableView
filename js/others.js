@@ -41,6 +41,15 @@ Array.prototype.unique = function() {
 	return r;
 };
 
+Array.prototype.diff = function(a) {
+	var r = [];
+	for(var i = 0; i < this.length; i++) {
+		if(a.indexOf(this[i]) == -1) {
+			r.push(this[i]);
+		}
+	}
+	return r;
+};
 
 // return last or fisrt element method
 

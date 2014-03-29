@@ -17,16 +17,17 @@ KeyEvents.prototype = {
         this.index = KeyEvents.listeners.length;
         KeyEvents.listeners.push(jquery_obj);
         KeyEvents.binding.push({});
-        if(KeyEvents.focused === undefined) {
-            KeyEvents.focused = 0;
-        }
+        KeyEvents.focused = KeyEvents.listeners.length - 1;
     },
     bind: function(key_code, with_key, func, this_obj) {
         if(with_key.join().replace(/[acms]*/, "") !== "") {
             throw new Error("invalid with_key");
         }
         var key = key_code + with_key.sort().join();
-        KeyEvents.binding[this.index][key] = function() {
+        KeyEvents.binding[this.index][key] = function(event) {
+            if(event.preventDefault) {
+                event.preventDefault();
+            }
             return func.apply(this_obj, arguments);
         };
         return this;
@@ -55,8 +56,8 @@ KeyEvents.set_event = function() {
             with_key.push("s");
         }
         var key = key_code + with_key.sort().join();
-        if(key in key_binding) {
-            key_binding[key]();
+        if(key_binding && key in key_binding) {
+            key_binding[key](event);
         }
     });
 };
