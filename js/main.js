@@ -27,29 +27,32 @@ function fun (t, e) {
 }
 
 function unit_test () {
-    var ls = ["a", "b", "c"];
+    // var ls = ["a", "b", "c"];
+    var ls = ["a"];
     var t = [];
     $.each(ls, function(i, v) {
         t[i] = new TableView($(".view_" + v), "test_view_" + v);
     });
-    $.each(ls, function(i, v) {
-        $.each(new Array(200), function(n) {
-            t[i].insert("html_" + v + "_" + n, n + "00" + v, n, []);
-        });
-    });
-    // var c = 0;
-    // setInterval(function() {
-    //     t[0].insert_last("html_" + c, +new Date(), []);
-    //     // console.log(c);
-    //     c += 1;
-    // }, 1000);
+    // $.each(ls, function(i, v) {
+    //     $.each(new Array(200), function(n) {
+    //         t[i].insert("html_" + v + "_" + n, n + "00" + v, n, []);
+    //     });
+    // });
+
+    var c = 0;
+    setInterval(function() {
+        var index = Math.round(Math.random() * c);
+        console.log(index);
+        t[0].insert("html_" + c, +new Date(), index, []);
+        c += 1;
+    }, 2000);
 
     // var d = 0;
     // setInterval(function() {
-    //     t[1].insert_last("html_" + d, +new Date(), []);
+    //     t[0].insert_last("html_" + d, +new Date(), []);
     //     // console.log(d);
     //     d += 1;
-    // }, 2200);
+    // }, 1000);
 
     // var e = 0;
     // fun(t, e);
